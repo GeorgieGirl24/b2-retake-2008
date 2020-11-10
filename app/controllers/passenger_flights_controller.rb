@@ -1,7 +1,12 @@
 class PassengerFlightsController < ApplicationController
-  def show
-    flight = Flight.find(params[:flight_id])
-# binding.pry
-    redirect_to "/flights/#{flight.id}"
+  def new
+    @passenger = Passenger.find(params[:id]
+  end
+
+  def create
+    passenger = Passenger.find(params[:id])
+    passenger_flights = PassengerFlights.find_by(passenger)
+    binding.pry
+    redirect_to "/passengers/#{passenger.id}"
   end
 end

@@ -5,3 +5,7 @@
     <p><%= link_to flight.number , "/flights/#{flight.id}"%></p>
   <% end %>
 </section>
+
+<section id="add-flight">
+  <%= button_to 'Add Flight', "/passengers/#{@passenger.id}/flights/new", method: :get %>
+</section>

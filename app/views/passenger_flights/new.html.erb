@@ -1,0 +1,18 @@
+<%= form_tag "/passengers/#{@passenger_flights}" do %>
+  <%= label_tag :number %>
+  <%= text_field_tag :number %>
+
+  <%= label_tag :date %>
+  <%= text_field_tag :date %>
+
+  <%= label_tag :departure_city %>
+  <%= number_field_tag :departure_city %>
+
+  <%= label_tag :arrival_city %>
+  <%= number_field_tag :arrival_city %>
+
+  <%= label_tag :time %>
+  <%= number_field_tag :time %>
+
+  <%= submit_tag 'Add Flight' %>
+<% end %>
