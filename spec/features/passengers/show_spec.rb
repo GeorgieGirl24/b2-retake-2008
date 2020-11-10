@@ -39,7 +39,11 @@ RSpec.describe 'Passengers Show Page' do
     it 'can see a form with a flight number needed, that will take me to the passengers show page with the added flight' do
 
       within "#add-flight" do
-        # fill_in 'Flight Number', with: @flight_4
+        fill_in :number, with: @flight_4.number
+        fill_in :date, with: @flight_4.date
+        fill_in :departure_city, with: @flight_4.departure_city
+        fill_in :arrival_city, with: @flight_4.arrival_city
+        fill_in :time, with: @flight_4.time
         click_button 'Add Flight'
       end
 

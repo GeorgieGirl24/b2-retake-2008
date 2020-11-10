@@ -6,6 +6,24 @@
   <% end %>
 </section>
 
+
 <section id="add-flight">
-  <%= button_to 'Add Flight', "/passengers/#{@passenger.id}/flights/new", method: :get %>
+  <%= form_tag "/passengers/#{@passenger.id}/flights", method: :create do %>
+    <%= label_tag :number, 'Flight Number' %>
+    <%= text_field_tag :number %>
+
+    <%= label_tag :date, 'Date' %>
+    <%= text_field_tag :date %>
+
+    <%= label_tag :departure_city, 'Departure City' %>
+    <%= number_field_tag :departure_city %>
+
+    <%= label_tag :arrival_city, 'Arrival City' %>
+    <%= number_field_tag :arrival_city %>
+
+    <%= label_tag :time, 'Flight Time' %>
+    <%= number_field_tag :time %>
+
+    <%= submit_tag 'Add Flight' %>
+  <% end %>
 </section>
