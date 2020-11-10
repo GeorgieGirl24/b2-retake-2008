@@ -6,4 +6,12 @@ class Flight < ApplicationRecord
   def airline_name
     self.airline.name
   end
+
+  def number_of_adults
+    self.passengers.where('age >= 18').count
+  end
+
+  def number_of_minors
+    self.passengers.where('age < 18').count
+  end
 end
