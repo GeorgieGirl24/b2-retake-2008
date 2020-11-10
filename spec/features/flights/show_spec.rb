@@ -12,6 +12,8 @@ RSpec.describe 'Flight Show Page' do
       @flight_4 = @airline_2.flights.create!(number: 12, date: "20/11/14", departure_city: 'Denver', arrival_city: 'Ft. Lauderdale', time: '20:10')
 
       @joe =  @flight_1.passengers.create!(name: 'Joe', age: 7)
+      @smitty =  @flight_1.passengers.create!(name: 'Smitty', age: 12)
+      @laurel =  @flight_1.passengers.create!(name: 'Laurel', age: 80)
       @sally =  @flight_2.passengers.create!(name: 'Sally', age: 23)
       @jill =  @flight_2.passengers.create!(name: 'Jill', age: 35)
       @bernard =  @flight_3.passengers.create!(name: 'Bernard', age: 54)
@@ -43,6 +45,20 @@ RSpec.describe 'Flight Show Page' do
         @flight_1.passengers.each do |passenger|
           expect(page).to have_content("Name: #{passenger.name}")
         end
+      end
+    end
+
+    it 'can see number of minors' do
+      within "#minors" do
+        expect(page).to have_content("Total Number of Minors:")
+        expect(page).to have_content("Number of Minors: #{@flight_1.number_of_minors}")
+      end
+    end
+
+    it 'can see number of adults' do
+      within "#adults" do
+        expect(page).to have_content("Total Number of Adults:")
+        expect(page).to have_content("Number of Adults: #{@flight_1.number_of_adults}")
       end
     end
   end
